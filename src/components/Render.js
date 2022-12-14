@@ -11,6 +11,9 @@ class Render extends React.Component {
     onRenderClick() {
         this.setState({ counter: this.state.counter + 1 });
     }
+    onForceClick = () => {
+        this.forceUpdate();
+    };
     shouldComponentUpdate(nextProps, nextState) {
         if (nextState.counter > 3) {
             return false;
@@ -25,6 +28,7 @@ class Render extends React.Component {
                 <h3>Render Counter: {this.state.counter}</h3>
                 <button onClick={this.onRenderClick}>Render Add 1</button>
                 <h3>App Counter: {this.props.number}</h3>
+                <button onClick={this.onForceClick}>Force Update</button>
             </div>
         );
     }
